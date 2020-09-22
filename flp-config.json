@@ -1,0 +1,34 @@
+{
+    "application": {
+        "id": "",
+        "title": "app.prapprovalgrunt.Pr_Approval_Grunt",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#Pr_Approval_Grunt-Display",
+        "navigationComponentName": "app.prapprovalgrunt",
+        "intentSemanticObject": "Pr_Approval_Grunt",
+        "intentAction": "Display",
+        "html5ApplicationName": "prapprovalgrunt",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "db8337dc-8578-4802-8106-c4553a5b1861"
+        ],
+        "contentPackages": [
+            "ba74642d-ebb6-4458-adac-d502ba9c14d1"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Approve Purchase Requisition",
+        "subtitle": "",
+        "searchKeywords": "Approve Purchase Requisition,",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

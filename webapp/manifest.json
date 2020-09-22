@@ -1,0 +1,168 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "app.prapprovalgrunt",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZPRJ_PM_APPS_IH_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZMM_PR_APPROVAL_SRV": {
+				"uri": "/sap/opu/odata/sap/ZMM_PR_APPROVAL_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZMM_PR_APPROVAL_SRV/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "app.prapprovalgrunt.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.66.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ushell": {},
+				"sap.collaboration": {
+					"lazy": true
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "app.prapprovalgrunt.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			},
+			"prlist": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZMM_PR_APPROVAL_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "./css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "./libs/down.js"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"viewPath": "app.prapprovalgrunt.view",
+				"controlId": "layout",
+				"controlAggregation": "beginColumnPages",
+				"bypassed": {
+					"target": "notFound"
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": "master",
+					"layout": "OneColumn"
+				},
+				{
+					"pattern": "Master/object/{mes}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					],
+					"layout": "TwoColumnsMidExpanded"
+				}
+			],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"viewLevel": 1,
+					"viewId": "master"
+				},
+				"object": {
+					"viewName": "Detail",
+					"viewId": "detail",
+					"viewLevel": 1,
+					"controlAggregation": "midColumnPages"
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound",
+					"controlAggregation": "midColumnPages"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zprapproval/webapp",
+		"_version": "1.1.0"
+	}
+}

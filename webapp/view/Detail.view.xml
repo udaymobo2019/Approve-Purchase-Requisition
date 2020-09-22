@@ -1,0 +1,316 @@
+<mvc:View controllerName="app.prapprovalgrunt.controller.Detail" xmlns:uxap="sap.uxap" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
+
+<uxap:ObjectPageLayout showTitleInHeaderContent="true" showHeaderContent="true" showAnchorBar="true" showFooter="true"
+		subSectionLayout="TitleOnTop" class= "sapUiResponsivePadding" alwaysShowContentHeader="false"
+		preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true"
+		isChildPage="true"
+		upperCaseAnchorBar="false">
+		<uxap:headerContent/>
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader id="objh" objectImageURI="sap-icon://sales-document" objectTitle="" objectSubtitle="ME54N" objectImageShape="Square"
+				isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" isActionAreaAlwaysVisible="true">
+				<uxap:actions/>
+				<uxap:navigationBar>
+					<Bar design="Auto">
+						<contentLeft/>
+						<contentMiddle/>
+						<contentRight>
+							<!--<Button text="" type="Default" icon="{= ${FclRouter>/expandIcon/img}}" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="{= ${FclRouter>/expandIcon/tooltip}}" iconDensityAware="false" class="fcl-resizeButton-js" press="_onExpandButtonPress"/>-->
+							<Button text="" type="Default" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}"
+								tooltip="Close Column" iconDensityAware="false" class="fcl-closeButton-js" press="_onCloseButtonPress"/>
+						</contentRight>
+					</Bar>
+				</uxap:navigationBar>
+				<uxap:navigationBar/>
+			</uxap:ObjectPageHeader>
+		</uxap:headerTitle>
+		<uxap:sections>
+			<uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="false" visible="true">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="General Data" mode="Expanded">
+						<uxap:blocks>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Document Type" design="Standard" width="auto" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="dtype" value="" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueStateText="Invalid entry" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Header Text" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="header" value="" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueStateText="Invalid entry" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection showTitle="true" title="Item Details" titleUppercase="false" visible="true">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Item Details" mode="Expanded">
+						<uxap:blocks>
+							<Table id="table" items="{/arr42}" itemPress="tabcellclick" selectionChange="tableClick1" width="100%" noDataText="No Data"
+								mode="SingleSelectMaster" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiTinyMargin">
+								<!--<infoToolbar>-->
+								<!--	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">-->
+								<!--		<content>-->
+								<!--			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+								<!--		</content>-->
+								<!--	</Toolbar>-->
+								<!--</infoToolbar>-->
+								<!--<headerToolbar>-->
+								<!--<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">-->
+								<!--	<content>-->
+								<!--		<Title text="Recent Measuring Documents" titleStyle="Auto" width="100%" textAlign="Begin" visible="true"/>-->
+								<!--		<ToolbarSpacer width=""/>-->
+								<!--	</content>-->
+								<!--</OverflowToolbar>-->
+								<!--</headerToolbar>-->
+								<columns>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Item No" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Material" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<!--<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">-->
+									<!--	<header>-->
+									<!--		<Text text="Description" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+									<!--	</header>-->
+									<!--	<footer/>-->
+									<!--</Column>-->
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Quantity" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Uom" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Price" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Total Amount" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Active"></ColumnListItem>
+								</items>
+							</Table>
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection showTitle="true" title="Additional Details" titleUppercase="false" visible="true">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Additional Details" mode="Expanded">
+						<uxap:blocks>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Plant" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="plnt" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false" required="false"
+														valueStateText="Invalid entry" maxLength="0" enabled="true"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Purchase Org" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="purorg" value="" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueStateText="Invalid entry" maxLength="0" enabled="true"/>
+												</form:fields>
+											</form:FormElement>
+											<!--<form:FormElement visible="true">-->
+											<!--	<form:label>-->
+											<!--		<Label text="Price" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+											<!--	</form:label>-->
+											<!--	<form:fields>-->
+											<!--		<Input id="price" value="" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false"-->
+											<!--			required="false" valueStateText="Invalid entry" maxLength="0" enabled="true"/>-->
+											<!--	</form:fields>-->
+											<!--</form:FormElement>-->
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Vendor" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="vend" value="" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueStateText="Invalid entry" maxLength="0" enabled="true"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Purchase Grp" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="purgrp" value="" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false"
+														required="false" valueStateText="Invalid entry" maxLength="0" enabled="true"/>
+												</form:fields>
+											</form:FormElement>
+											<!--<form:FormElement visible="true">-->
+											<!--	<form:label>-->
+											<!--		<Label text="Total Value" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+											<!--	</form:label>-->
+											<!--	<form:fields>-->
+											<!--		<Input id="totval" value="" type="Text" showValueHelp="false" editable="false" visible="true" width="auto" valueHelpOnly="false"-->
+											<!--			required="false" valueStateText="Invalid entry" maxLength="0" enabled="true"/>-->
+											<!--	</form:fields>-->
+											<!--</form:FormElement>-->
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection showTitle="true" title="Release Strategy" titleUppercase="false" visible="true">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Release Strategy" mode="Expanded">
+						<uxap:blocks>
+							<!--<List width="100%" items="{prrele>/ReleaseStrategySet}" growing="false" growingThreshold="20" growingScrollToLoad="false"-->
+							<!--	backgroundDesign="Solid">-->
+							<!--	<items>-->
+							<!--		<FeedListItem id="feedList" sender="{prrele>ReleaseCodedes}"  icon="" senderPress="onPress" iconPress="onPress" iconDensityAware="false" info="{prrele>OrganizationalManagement}"-->
+							<!--			timestamp="" text="" convertLinksToAnchorTags="All">-->
+							<!--		</FeedListItem>-->
+							<!--	</items>-->
+							<!--</List>-->
+							<List items="{oGlobalModel>/ReleaseStatus}">
+								<items>
+									<ObjectListItem title="{oGlobalModel>OrganizationalManagement}" type="Active" press="onListItemPress" number="" numberUnit="">
+									<firstStatus>
+										<ObjectStatus text="{oGlobalModel>ReleaseStatus}" state="{parts:[{path: 'oGlobalModel>ReleaseStatus'}], formatter:'.status'}"/>
+										<!--	<ObjectStatus text="{oGlobalModel>ReleaseStatus}" state="{ path: 'oGlobalModel>ReleaseStatus', formatter: 'sap.m.sample.ObjectListItem.Formatter.status' }"/>-->
+									</firstStatus>
+									<!--<ObjectAttribute text="{oGlobalModel>ReleaseCodedes}"/>-->
+									<ObjectAttribute text="{oGlobalModel>comment}" id="super" />
+								</ObjectListItem>
+									</items>
+							</List>
+						</uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection showTitle="true" title="Attachment" titleUppercase="false" visible="true">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="Attachment" mode="Expanded">
+						<uxap:blocks>
+							<List id="UploadCollection1" delete="ci_handleDelete" itemPress="downListPress" enableBusyIndicator="true" headerText=""
+								noDataText="No Attachment Found" growing="true" visible="true"></List>
+						</uxap:blocks>
+						<!--Drop files or use the &quot;+&quot; button for upload-->
+						<uxap:blocks></uxap:blocks>
+						<uxap:moreBlocks/>
+						<uxap:actions/>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+				<uxap:customAnchorBarButton/>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+		<uxap:footer>
+			<OverflowToolbar width="auto" height="100%" design="Auto" enabled="true" visible="true">
+				<!--	<Button text="Approve and Convert to PO" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+					press="Appr_po"/>-->
+				<content>
+					<ToolbarSpacer width=""/>
+					<Button id="reles" text="Approve" type="Emphasized" icon="sap-icon://accept" iconFirst="true" width="auto" enabled="true" visible="false"
+						iconDensityAware="false" press="Appr_pr"/>
+					<Button id="sup_reject_dir" text="Reject" type="Emphasized" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true"
+						visible="false" iconDensityAware="false" press="reject_pr"/>
+					<Button id="rejet" text="Cancel" type="Emphasized" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true" visible="false"
+						iconDensityAware="false" press="Canc_pr"/>
+				</content>
+			</OverflowToolbar>
+		</uxap:footer>
+	</uxap:ObjectPageLayout>
+
+</mvc:View>

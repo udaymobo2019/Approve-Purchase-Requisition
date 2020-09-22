@@ -1,0 +1,106 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.poApproval.controller.Dialog3" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" icon="sap-icon://clinical-tast-tracker" showHeader="true" state="None" stretch="false"
+		title="Material" type="Standard" verticalScrolling="true" contentHeight="" contentWidth="42%">
+		<content>
+			<IconTabBar expandable="true" expanded="true" applyContentPadding="true" backgroundDesign="Translucent" upperCase="false" visible="true"
+				selectedKey="Ok">
+				<items>
+					<IconTabFilter iconColor="Default" text="By Plant" count="" design="Vertical" showAll="false"  textDirection="Inherit" enabled="true"
+						visible="true" iconDensityAware="false" >
+						<content>
+							<HBox>
+								<Text text="Plant" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"
+									class="sapUiTinyMargin"/>
+								<ComboBox id="main" placeholder="" editable="true" items="{/PlantF4Set}" selectionChange="plant" enabled="true" visible="true" width="100%"
+									valueState="None" maxWidth="100%">
+									<core:Item text="{ImPlant} {Descriptions}" enabled="true" key="{ImPlant}"/>
+								</ComboBox>
+							</HBox>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter iconColor="Default" text="By Material Type" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true"
+						visible="true" iconDensityAware="false">
+						<content>
+							<HBox>
+								<Text text="Material Type" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"
+									class="sapUiTinyMargin"/>
+								<ComboBox id="cost" placeholder="" change = "objcode" width="15em" editable="true">
+								
+								</ComboBox>
+							</HBox>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter iconColor="Default" text="By Material Description" count="" design="Vertical" showAll="false" textDirection="Inherit"
+						enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<HBox>
+								<Text text="Material Description" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"
+									class="sapUiTinyMargin"/>
+								<ComboBox id="functech" placeholder="" editable="true"  change="tech_change" enabled="true" visible="true"
+									width="100%" valueState="None" maxWidth="100%" >
+								
+								</ComboBox>
+							</HBox>
+						</content>
+					</IconTabFilter>
+					
+				</items>
+				<content>
+					<Text text="Tab Bar Content goes here ..." width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"
+						visible="true"/>
+				</content>
+			</IconTabBar>
+			<Table id="technical_detail" width="auto" noDataText="Select Details" mode="SingleSelect" showSeparators="All" growing="true" growingThreshold="20"
+				growingScrollToLoad="true" class="sapUiResponsiveMargin">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+						<content>
+							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<OverflowToolbar width="auto" height="auto" design="Solid" visible="true" enabled="true">
+						<content>
+							<Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+							<ToolbarSpacer width=""/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Material" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Description" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</header>
+						<footer/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active">
+						<Text id="p1" text=""/>
+						<Text id="p2" text=""/>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton/>
+		<buttons>
+				<Button text="Clear Filter" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="clearfilter"/>
+			<Button text="OK" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="techok"/>
+			<Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="cancelHelp"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

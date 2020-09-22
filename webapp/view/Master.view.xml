@@ -1,0 +1,68 @@
+<mvc:View
+	controllerName="app.prapprovalgrunt.controller.Master"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<Page title="PR List" showHeader="true" showFooter="false" showNavButton="false">
+ 	<subHeader>
+					<Toolbar enabled="true" visible="true" width="" design="Solid">
+						<content>
+							<SearchField placeholder="Search" showSearchButton="true" visible="true" width="100%" liveChange="search"/>
+						</content>
+						<ToolbarSpacer/>
+						<SegmentedButton selectedKey="Open">
+							<items>
+								<SegmentedButtonItem text="Open" key="Open" press="open"/>
+								<SegmentedButtonItem text="Approved" press="approval"/>
+							</items>
+						</SegmentedButton>
+					</Toolbar>
+				</subHeader>
+		 <content>
+            <List id="List" busy="{oGlobalModel>/delay}" busyIndicatorDelay="0" mode="SingleSelectMaster" width="100%" headerText="" footerText="" 
+            items="{path:'/listdata', templateShareable:true}" backgroundDesign="Solid" 
+            showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" itemPress="_onObjectListItemPress">
+                <infoToolbar/>
+				<!--<headerToolbar>-->
+				<!--	<Toolbar enabled="true" visible="true" width="" design="Solid">-->
+				<!--		<content>-->
+				<!--			<SearchField placeholder="Search" showSearchButton="true" visible="true" width="100%" liveChange="search"/>-->
+				<!--		</content>-->
+				<!--		<ToolbarSpacer/>-->
+				<!--		<SegmentedButton selectedKey="Open">-->
+				<!--			<items>-->
+				<!--				<SegmentedButtonItem text="Open" key="Open" press="open"/>-->
+				<!--				<SegmentedButtonItem text="Approved" press="approval"/>-->
+				<!--			</items>-->
+				<!--		</SegmentedButton>-->
+				<!--	</Toolbar>-->
+				<!--</headerToolbar>-->
+                <items>
+                    <ObjectListItem intro="" title="{point}" number="{sta}" numberUnit="{desc}" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress1">
+                        <attributes>
+                            <ObjectAttribute title="Purch. Org. " text = "{eqno}" active="false" visible="true"/>
+                            <ObjectAttribute title="Plant " text="{funlno}" active="false" visible="true"/>
+                        </attributes>
+                    <markers>
+					<ObjectMarker visibility="TextOnly" />
+					<ObjectMarker visibility="TextOnly" />
+					</markers>
+                    <firstStatus>
+                    <ObjectStatus title="Created on" text="{cate}" state="None" visible="true"/>
+                    </firstStatus>
+                    <secondStatus/>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content/>
+            </OverflowToolbar>
+        </footer>
+        <headerContent>
+            <!--<Button text="" type="Default" icon="{= ${FclRouter>/expandIcon/img}}" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="{= ${FclRouter>/expandIcon/tooltip}}" iconDensityAware="false" class="fcl-resizeButton-js" press="_onExpandButtonPress"/>-->
+            <Button text="Back to Dashboard" type="Transparent" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="Close Column" iconDensityAware="false" class="fcl-closeButton-js" press="_onCloseButtonPress"/>
+        </headerContent>
+    </Page>
+</mvc:View>

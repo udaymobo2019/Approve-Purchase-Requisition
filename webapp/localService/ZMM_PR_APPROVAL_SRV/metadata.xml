@@ -1,0 +1,84 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZMM_PR_APPROVAL_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="MasterPR" sap:content-version="1">
+				<Key><PropertyRef Name="PRnumber"/></Key><Property Name="PRnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="PRPrice" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="PurchaseOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CreatedDate" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="PlantDesc" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PurchaseOrgDesc" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ImApprover" Type="Edm.String" Nullable="false" MaxLength="12" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Status" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="CreateHeader" sap:content-version="1">
+				<Key><PropertyRef Name="PRNumber"/></Key><Property Name="PRNumber" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="DocumentType" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Order Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HeaderText" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="DocumentDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ReleaseStatus" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="SupervisorText" Type="Edm.String" Nullable="false" sap:label="Supervisor Text" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ManagerText" Type="Edm.String" Nullable="false" sap:label="Manager Text" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DirectorText" Type="Edm.String" Nullable="false" sap:label="Director Text" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="Header2ReleaseStrategy" Relationship="ZMM_PR_APPROVAL_SRV.Header2ReleaseStrategy"
+					FromRole="FromRole_Header2ReleaseStrategy" ToRole="ToRole_Header2ReleaseStrategy"/><NavigationProperty Name="Header2Return" Relationship="ZMM_PR_APPROVAL_SRV.Header2Return" FromRole="FromRole_Header2Return"
+					ToRole="ToRole_Header2Return"/><NavigationProperty Name="Header2Item" Relationship="ZMM_PR_APPROVAL_SRV.Header2Item" FromRole="FromRole_Header2Item"
+					ToRole="ToRole_Header2Item"/></EntityType>
+			<EntityType Name="CreateItem" sap:content-version="1">
+				<Key><PropertyRef Name="ItemNumber"/></Key><Property Name="ItemNumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Quantity" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="UoM" Type="Edm.String" Nullable="false" MaxLength="3" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="PO" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Price" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="TotalValue" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ReleaseStatus" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="ReleaseStrategy" sap:content-version="1">
+				<Key><PropertyRef Name="Decision"/></Key><Property Name="Decision" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="Return" sap:content-version="1">
+				<Key><PropertyRef Name="Type"/></Key><Property Name="Type" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<Association Name="Header2Return" sap:content-version="1"><End Type="ZMM_PR_APPROVAL_SRV.CreateHeader" Multiplicity="1" Role="FromRole_Header2Return"/><End Type="ZMM_PR_APPROVAL_SRV.Return" Multiplicity="*" Role="ToRole_Header2Return"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Header2Return"><PropertyRef Name="PRNumber"/></Principal>
+					<Dependent Role="ToRole_Header2Return"><PropertyRef Name="Type"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Header2Item" sap:content-version="1"><End Type="ZMM_PR_APPROVAL_SRV.CreateHeader" Multiplicity="1" Role="FromRole_Header2Item"/><End Type="ZMM_PR_APPROVAL_SRV.CreateItem" Multiplicity="*" Role="ToRole_Header2Item"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Header2Item"><PropertyRef Name="PRNumber"/></Principal>
+					<Dependent Role="ToRole_Header2Item"><PropertyRef Name="ItemNumber"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Header2ReleaseStrategy" sap:content-version="1"><End Type="ZMM_PR_APPROVAL_SRV.CreateHeader" Multiplicity="1" Role="FromRole_Header2ReleaseStrategy"/><End Type="ZMM_PR_APPROVAL_SRV.ReleaseStrategy" Multiplicity="1" Role="ToRole_Header2ReleaseStrategy"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Header2ReleaseStrategy"><PropertyRef Name="PRNumber"/></Principal>
+					<Dependent Role="ToRole_Header2ReleaseStrategy"><PropertyRef Name="Decision"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZMM_PR_APPROVAL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="MasterPRSet" EntityType="ZMM_PR_APPROVAL_SRV.MasterPR" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="CreateHeaderSet" EntityType="ZMM_PR_APPROVAL_SRV.CreateHeader" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="CreateItemSet" EntityType="ZMM_PR_APPROVAL_SRV.CreateItem" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ReleaseStrategySet" EntityType="ZMM_PR_APPROVAL_SRV.ReleaseStrategy" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ReturnSet" EntityType="ZMM_PR_APPROVAL_SRV.Return" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="Header2ReturnSet" Association="ZMM_PR_APPROVAL_SRV.Header2Return" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="CreateHeaderSet" Role="FromRole_Header2Return"/><End EntitySet="ReturnSet" Role="ToRole_Header2Return"/></AssociationSet>
+				<AssociationSet Name="Header2ReleaseStrategySet" Association="ZMM_PR_APPROVAL_SRV.Header2ReleaseStrategy" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="CreateHeaderSet" Role="FromRole_Header2ReleaseStrategy"/><End EntitySet="ReleaseStrategySet" Role="ToRole_Header2ReleaseStrategy"/></AssociationSet>
+				<AssociationSet Name="Header2ItemSet" Association="ZMM_PR_APPROVAL_SRV.Header2Item" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="CreateHeaderSet" Role="FromRole_Header2Item"/><End EntitySet="CreateItemSet" Role="ToRole_Header2Item"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZMM_PR_APPROVAL_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZMM_PR_APPROVAL_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
